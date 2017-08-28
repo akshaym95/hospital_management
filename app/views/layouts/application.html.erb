@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Hospital Management System</title>
+ <link href="/stylesheets/css/normalize.css" media="screen" rel="stylesheet"
+       type="text/css" />
+   <link href="/stylesheets/css/skeleton.css" media="screen" rel="stylesheet"
+         type="text/css" />
+   <script
+   src="https://code.jquery.com/jquery-3.2.1.min.js"
+ integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+ crossorigin="anonymous">
+  </script>
+</head>
+<body>
+ <div class="mainview"><br></div>
+ <div class="mainview"><div class="three columns"><br></div>
+     <div class="five columns"><h3>Hospital Management System</h3></div>
+     <div style="padding-top: 10px;" class="four columns">
+<% if (session[:current_user_id] != nil) then %>
+  <%= link_to 'Log Out',logout_users_path,:class=>"button button-primary" %>
+<%end%></div></div>
+ <div class="mainview"><br></div>
+ <div class="row"><br></div>
+<%= yield %>
+</body>
+</html>

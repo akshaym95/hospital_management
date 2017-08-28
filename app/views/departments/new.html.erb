@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"> <h4>Add new Department </h4></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% form_for(@department) do |f|  %>
+     <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"> <%= f.error_messages %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Department_Name  %><br />
+    <%= f.text_field :name %></div>
+         <div class="two columns"><br></div>
+    </div>
+    
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="button-primary">   <%= f.submit "Save"%>
+            <%= link_to 'Back', departments_path %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,27 @@
+  <div class="container">
+    <div class="row">
+        <div class="two columns"><br></div>
+        <div class="eight columns"> <h4> Patient Details:</h4></div>
+    </div>
+       <div class="row">
+            <div class="two columns"><br></div>
+            <div class="four columns">
+                <pre><h5>Name: <%=@patient.name.camelcase%></h5></pre>
+            <pre><h5>Age: <%=@patient.age%></h5></pre>
+             <h4>Options:</h4>
+        <ul>
+        <li><%= link_to ' View Appointments',
+            viewappointments_patient_path(session[:current_user_id]) %></li>
+         <li><%= link_to 'New Appointments',
+              newappointments_patient_path(session[:current_user_id]) %></li>
+       <li><%= link_to 'Edit Details', 
+                edit_patient_path(session[:current_user_id]) %></li>
+           </ul>
+      
+    </div>
+             <div class="five columns">
+                 <%= image_tag @user.avatar.url(:medium) %>
+                 </div>
+        </div>
+    
+   </div>

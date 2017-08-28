@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+        <div class="two columns"></br> </div>
+        <div class="eight columns"> <h4>Doctors:</h4></div>
+</div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+           <div class="eight columns">
+               <table> <tr><th>No.</th>
+                       <th><center>name</center></th><th>Age</th>
+               <th><center>Department</center></th>
+                       <th>Option </th></center></tr> </div> 
+<% @doctors.each_with_index do|doctor,i| %>   
+  <tr><td><%=i+1 %></td>
+      <td> <%= image_tag doctor.avatar.url(:thumb) %><br>
+  <center><%=  doctor.name.camelcase %></center></td><td><%= doctor.age  %></td>
+    <td><center><%= doctor.department.name  %></center></td>
+                 <td><%= link_to 'Delete',doctor, :confirm => 'Are you Sure?', 
+                  :method=>:delete %></td></tr>
+<% end %>
+      </div>
+    </div>
+    </table>
+          <div class="two columns"></br> </div>
+        <div class="two columns"><div>
+<%= link_to 'add doctors', new_doctor_path %></div> </div>
+        <div class="seven columns"><%= link_to 'Back', admins_path %></div>
+    </div>
+    
+</div>
+ <div class="rows"><br></div> <div class="rows"><br></div> <div class="rows"><br></div>
+     
+           </div>

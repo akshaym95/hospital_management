@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"> <h4>New Bed Registration</h4></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% form_for @registration, :url=>saveregistration_admins_path  do |f|%>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"><%= f.error_messages %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+      <div class="two columns"><br></div>
+      <div class="eight columns">
+      select Patient:
+      <%= f.select :patient_id, options_for_select(@patients.map{|p| [p.name,p.id]})%>
+      <br>select Ward:
+      <%= f.select :id, options_for_select(@rooms.map{|p| [p.room_no,p.id]})%>
+      <br>select Start date and time<br>
+      <%=f.datetime_select :start_time, :start_year => 2017, :id=> "start_date" %>
+      <br>select End date and Time<br>
+      <%=f.datetime_select :end_time, :start_year => 2017, :id=> "start_date" %><br>
+      <a id="list" href="#">show Available Beds</a>
+      <div id="beds"><br>
+       <%= link_to 'Back', admins_path %></div>
+         
+    <% end %>
+        </div>
+    </div>
+</div>
+
+<script>
+ $('#list').on('click',function(e){
+   e.preventDefault();
+    start_time = $('#registration_start_time_1i').val()+"-" +$('#registration_start_time_2i').val()+"-" + $('#registration_start_time_3i').val()+" " + $('#registration_start_time_4i').val()+":" +$('#registration_start_time_5i').val()
+    end_time = $('#registration_end_time_1i').val()+"-" + $('#registration_end_time_2i').val()+"-" + $('#registration_end_time_3i').val()+" " + $('#registration_end_time_4i').val()+":" +$('#registration_end_time_5i').val()
+    $.ajax({
+     method: 'get',
+     url: "/admins/ajax_view_beds",
+     data: {room_id: $('#registration_id').val(),patient_id: $('#registration_patient_id').val(),start_time: start_time,end_time: end_time},
+     complete: function(resp){
+       $('#beds').html(resp.responseText);
+     }
+   })
+   });
+</script>

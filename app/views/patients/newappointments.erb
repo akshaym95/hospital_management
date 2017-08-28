@@ -1,0 +1,42 @@
+
+<div class="container">
+     <div class="row">
+     <div class="two columns"><br></div>
+    <div class="eight columns"><h2>New Appointment</h2></div>
+     <div class="two columns"><br></div>
+</div>
+<% form_for :appointment, :url=>save_appointments_patient_path  do |f| %>
+     <div class="row">
+     <div class="two columns"><br></div>
+    <div class="eight columns">Select Department
+<%= f.select :id, options_for_select(@departments.map{|d| [d.name,d.id]})%>
+<br>Select Appointment date and time <br>
+<%=f.datetime_select :appointment_date, :start_year => 2017,:id=> "start_date" %>
+<br>Select the Appointment Duration(min)<br>
+<%= f.select :duration,[5,10,15,20,25,30] %><br>
+<a id="list" href="#">show Available Doctors</a>
+<div id="showdoctors">
+<%= link_to 'Back', patients_path %></div>
+ 
+<%end%>
+</div>
+    
+     </div>
+  </div>
+   
+<script>
+ $('#list').on('click',function(e){
+   e.preventDefault();
+   patient_id=<%=@patient.id%>
+    appointment_date11 = $('#appointment_appointment_date_1i').val()+"-" + $('#appointment_appointment_date_2i').val()+"-" + $('#appointment_appointment_date_3i').val()+" " + $('#appointment_appointment_date_4i').val()+":" +$('#appointment_appointment_date_5i').val()
+   duration=$('#appointment_duration').val()
+    $.ajax({
+     method: 'get',
+     url: "/patients/showavailabledoctors",
+     data: {patient_id: patient_id,department_id: $('#appointment_id').val(),appointment_date: appointment_date11,duration:$('#appointment_duration').val() },
+     complete: function(resp){
+       $('#showdoctors').html(resp.responseText);
+     }
+   })
+   });
+</script>

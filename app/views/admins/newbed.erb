@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"> <h4>Add new Bed </h4></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% form_for @bed, :url=>newbedsave_admins_path  do |f|%>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"><%= f.error_messages %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Bed_number  %><br />
+    <%= f.text_field :bed_no %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Ward_No  %><br />
+    <%= f.text_field :room_id %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="button-primary"> <%= f.submit "Save"%>
+        <%= link_to 'Back', bedview_admins_path %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% end %>
+</div>

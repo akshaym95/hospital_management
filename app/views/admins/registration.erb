@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="two columns"></br> </div>
+        <div class="eight columns"> <h5>Registrations</h5></div>
+         <div class="two columns"></br> </div>
+    </div>
+    
+    <table>
+    <div class="row">     
+           <div class="eight columns"> <tr><th>No.</th><th>Patient name</th>
+                   <th>Bed id </th><th>Start time</th><th>End time </th>
+                   <th>Options</th></tr>
+           </div> 
+    </div>
+<% @registration.each_with_index do|reg,i| %>   
+    <div class="row">
+          
+         <div class="eight columns"><tr><td><%=i+1 %></td>
+                 <td> <%= image_tag reg.patient.avatar.url(:thumb) %><br>
+             <center><%=  reg.patient.name.camelcase%></center></td><td><%= reg.bed_id %></td>
+                 <td><%=  reg.start_time %></td>
+                  <td><%= reg.end_time %></td>
+                  <td><%= link_to 'Delete',deleteregistration_admin_path(reg),
+                        :confirm => 'Are you Sure?', :method=>:delete %></td>
+             </tr></div>
+    <div class="two columns"></br> </div>
+    </div>
+<% end %>
+    </table>
+    <div class="row"><div class="two columns"></br> </div>
+        <div class="two columns"><br></div>
+            <div class="three columns"> 
+             <%= link_to 'add registration', newregistration_admins_path %>
+            </div> 
+        <div class="three columns"><%= link_to 'Back', admins_path %></div>
+    </div></div>
+</div>
+</div>

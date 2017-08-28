@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row">
+        <div class="two columns"></br> </div>
+        <div class="eight columns"> <h4>Patients:</div>
+        
+    </div>
+<div class="row">      
+            <div class="two columns"><br></div>
+           <div class="eight columns"> 
+              <table>
+       
+               <tr><th>No.</th>
+                   <th>name</th><th>Age</th>
+                   <th>Option </th></tr>
+             <% @patients.each_with_index do|patient,i| %>
+             <tr><td><%=i+1 %></td>
+                 <td> <%= image_tag patient.avatar.url(:thumb) %><br>
+             <center><%=  patient.name.camelcase %></center></td><td><%= patient.age  %></td>
+                 <td><%= link_to 'Delete',patient,
+                :confirm => 'Are you Sure?', :method=>:delete %></td></tr>
+          <% end %>
+               </table>
+         </div>
+</div>
+    <div class="row">
+        <div class="two columns"><br></div>
+        <div class="ten columns"><%= link_to 'Back', admins_path %></div>
+    </div>
+   <div class="rows"><br></div> <div class="rows"><br></div> <div class="rows"><br></div>
+</div>

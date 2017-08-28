@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="two columns"><br></div>
+        <div class="eight columns"><Label>Sign Up</label></div>
+        <div class="two column"><br></div>
+    </div>
+    <% form_for @patient,:html => { :multipart => true } do |f|  %>
+     <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"><%= f.error_messages %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Name  %><br />
+    <%= f.text_field :name %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Age  %><br />
+    <%= f.text_field :age %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns"><%= f.label :Profile_Picture  %><br />
+    <%= f.file_field :avatar %></div>
+        </div>
+     <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Username  %><br />
+    <%= f.text_field :username %></div>
+         <div class="two columns"><br></div>
+    </div>
+     <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :Password  %><br />
+   <%= f.password_field :password%></div>
+         <div class="two columns"><br></div>
+    </div>
+     <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="eight columns">  <%= f.label :conform_Password  %><br />
+    <%= f.password_field :password%></div>
+         <div class="two columns"><br></div>
+    </div>
+    <div class="row"> 
+        <div class="two columns"><br></div>
+        <div class="button-primary">   <%= f.submit "Create"%>
+          <%= link_to 'Back', users_path %></div>
+         <div class="two columns"><br></div>
+    </div>
+    <% end %>
+</div>

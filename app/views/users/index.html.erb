@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row"><br></div>
+    <div class="row"><br></div>
+  <div class="row">
+        <div class="three columns"></br> </div>
+        <div class="eight columns"> <h4>Login</div>
+         
+    </div>
+ <% form_for@user, :url=>validation_users_path do |f|  %>
+     <div class="row"> 
+        <div class="three columns"><br></div>
+        <div class="eight columns">  <%= f.label :UserName  %><br />
+    <%= f.text_field :username %></div>
+        
+    </div>
+    <div class="row"> 
+        <div class="three columns"><br></div>
+        <div class="eight columns">  <%= f.label :Password  %><br />
+    <%= f.password_field :password%></div>
+        
+    </div>
+     <div class="row"> 
+        <div class="three columns"><br></div>
+        <div class="eight columns">
+            <div class="button-primary"> <%= f.submit "Log In"%></div></div>
+        
+    </div>
+     <div class="row"> 
+        <div class="three columns"><br></div>
+         <div class="eight columns">
+             <div style="color:red;"><%= flash[:notice]%></div></div>
+         
+    </div>
+    <% end %>
+    <div class="row">
+        <div class="three columns"></br> </div>
+        <div class="eight columns">
+       <div><%= link_to 'Not Registered? Sign Up Now',signup_users_path %></div>
+        </div>
+     
+    </div>
+       <div class="row"><br></div>
+</div>

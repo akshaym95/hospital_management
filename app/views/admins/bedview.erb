@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row"><div class="two columns"><br></div>
+        <div class="ten columns">
+<div class="row">
+        <div class="four columns"> <h4>Beds:</div>
+    </div>
+<table>
+     <% @rooms.each do |room| %>
+    <div class="row">
+        <div class="three columns"> <tr><th><%=room.room_no %></th>
+                <td><%= link_to 'Delete',deleteroom_admin_path(room),
+               :confirm => 'Are you Sure?', :method=>:delete %></td></tr> </div>
+    </div>
+    <div class="row">
+    <div class="five columns"> <tr><th>No.</th>
+            <th>Bed No.</th><th>Option </th></tr> </div>
+    </div>
+    <% room.beds.each_with_index do|bed,i| %>
+          <div class="row">
+         <div class="eight columns"><tr><td><%=i+1 %></td>
+                 <td><%=  bed.bed_no %></td><td>
+        <%= link_to 'Delete',deletebed_admin_path(bed),
+          :confirm => 'Are you Sure?', :method=>:delete %></td></tr></div>
+         
+    </div>
+<% end %>
+    <% end %>
+    </table>
+            
+    <div class="row">
+        <div class="two columns">
+        <%= link_to'Add Wards',newward_admins_path %></div>
+        <div class="seven columns">
+        <%= link_to'Add beds',newbed_admins_path %></div>
+    </div>
+             <div class="row"><br></div>
+            <div class="row">
+                 <div class="seven columns">
+                <%= link_to 'Back', admins_path %></div>
+            </div>
+              </div>
+           
+         <div class="row"><br></div>
+          <div class="row"><br></div>
+           <div class="row"><br></div>
+</div>
+</div>

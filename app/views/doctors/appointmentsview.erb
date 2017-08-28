@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+    <div class="two columns"><br></div>
+    <div class="eight columns"><h4>Upcoming Appointments</h4></div>
+    </div>
+    <table>
+    <div class="row">     
+           <div class="eight columns"> <tr><th>No.</th><th>Appointment date</th>
+                   <th>Appointment time</th><th>Duration</th></tr> </div> 
+    </div>
+    <%  @appointments.each_with_index do|appointment,i| %>
+    <div class="row">
+          
+         <div class="eight columns"><tr><td><%=i+1 %></td>
+                 <td><%= appointment.appointment_date.to_date %></td>
+                 <td><%= appointment.appointment_date.to_s(:time) %></td>
+                 <td><%= appointment.duration  %></td></tr>
+         </div>
+    <div class="two columns"></br> </div>
+    </div>
+<% end %>
+        </table>
+    <div class="row">
+          <div class="two columns"></br> </div>
+        <div class="seven columns"><%= link_to 'Back', doctors_path %></div>
+    </div>
+</div>

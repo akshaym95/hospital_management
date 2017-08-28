@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient: 
+  bed: 
+  start_time: 2017-08-14 11:49:16
+  end_time: 2017-08-14 11:49:16
+
+two:
+  patient: 
+  bed: 
+  start_time: 2017-08-14 11:49:16
+  end_time: 2017-08-14 11:49:16
